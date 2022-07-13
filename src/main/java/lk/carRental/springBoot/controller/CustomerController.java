@@ -1,19 +1,13 @@
 package lk.carRental.springBoot.controller;
 
-import lk.carRental.springBoot.dto.CustomerDTO;
-import lk.carRental.springBoot.service.CustomerServiceImpl;
+import lk.carRental.springBoot.dto.OrderDTO;
+import lk.carRental.springBoot.service.impl.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 @RestController
@@ -22,32 +16,37 @@ import java.util.ArrayList;
 public class CustomerController{
 
 
-    @Autowired
+     @Autowired
      CustomerServiceImpl customerService;
 
+       @PostMapping(path = "/post",consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE})
+       public  void registerCustomer(@RequestBody OrderDTO  orderDTO , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes){
 
-       public  void registerCustomer(){
+             System.out.println("post workig");
+       }
+
+       @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE})
+       public  void updateCustomer(@RequestBody OrderDTO  orderDTO , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes){
 
        }
 
-       public  void updateCustomer(){
+       @DeleteMapping
+       public  void deleteCustomer(String id){
 
        }
 
-       public  void deleteCustomer(){
+       @GetMapping(path = "verified")
+       public void getCustomerIsVerified(String id){
 
        }
 
-       public void getCustomerIsVerified(){
-
+       @GetMapping(path = "/")
+       public String getAllCustomer(){
+        return  "SuyyyySS";
        }
 
-       public  void getAllCustomer(){
-
-       }
-
-       public void searchCustomer(){
-
+       @GetMapping(path = "/search")
+       public void searchCustomer(String id){
 
        }
 

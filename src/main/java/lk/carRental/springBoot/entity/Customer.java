@@ -32,8 +32,10 @@ public class Customer {
 
 
 
-    @OneToOne(mappedBy = "customer")
-    Order order;
 
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
+    Order order;
 
 }

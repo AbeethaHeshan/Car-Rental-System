@@ -12,21 +12,26 @@ public class OrderController {
 
             public void placeOrder(){
 
+
             }
 
             public  void deleteOrder(){
+
 
             }
 
             public  void updateOrder(){
 
+
             }
 
             public void orderIdVerified(){
 
+
             }
 
             public void getAllOrder(){
+
 
             }
 

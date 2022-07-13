@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -31,7 +32,6 @@ public class Vehicle {
     private Order order;
 
     @OneToMany(mappedBy="vehicle")
-    private Set<Gallery> galleries;
-
+    private List<Gallery> galleries;
 
 }

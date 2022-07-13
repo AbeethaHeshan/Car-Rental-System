@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class VehicleController {
 
-
-
-
          public void registerVehicle(){
 
 

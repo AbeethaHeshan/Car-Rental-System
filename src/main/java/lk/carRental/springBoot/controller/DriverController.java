@@ -45,7 +45,6 @@ public class DriverController {
     public  void getDriverAvailability(){
 
 
-
     }
 
 }

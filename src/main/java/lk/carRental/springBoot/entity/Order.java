@@ -32,7 +32,9 @@ public class Order{
     @OneToOne(mappedBy = "order")
     Payment payment;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+
+    @OneToOne(mappedBy = "order")
     Customer customer;
+
+
 }
