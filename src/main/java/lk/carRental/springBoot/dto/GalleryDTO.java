@@ -12,8 +12,8 @@ import lombok.ToString;
 @Data
 public class GalleryDTO {
 
-     String id;
-     String fileName;
-     byte[] img;
+     private String id;
+     private String fileName;
+     private byte[] img;
 
 }

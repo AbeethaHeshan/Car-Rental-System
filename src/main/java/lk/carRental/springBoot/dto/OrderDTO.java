@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -14,11 +12,14 @@ import java.time.LocalDateTime;
 @ToString
 public class OrderDTO {
 
-    String orderId;
-    LocalDateTime date;
-    LocalDateTime from;
-    LocalDateTime to;
-    double totalCost;
-    String status;
+    private String orderId;
+    private LocalDateTime date;
+    private LocalDateTime from;
+    private LocalDateTime to;
+    private double totalCost;
+    private String status;
+    private CustomerDTO customer;
+    private VehicleDTO vehicle;
+    private PaymentDTO payment;
 
 }

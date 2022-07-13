@@ -31,11 +31,4 @@ public class Customer {
     private String password;
 
 
-
-
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
-    Order order;
-
 }

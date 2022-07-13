@@ -16,10 +16,7 @@ public class Payment {
      private  String id;
      @Column(unique = false, nullable = false, length = 100000)
      private byte[] bankSlip;
-     private String status = "NotVerified";
+     private String status ;
 
-     @OneToOne(cascade = CascadeType.ALL)
-     @JoinColumn(name = "orderId", referencedColumnName = "orderId")
-     Order order;
 
 }

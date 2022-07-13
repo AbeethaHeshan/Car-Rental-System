@@ -15,25 +15,21 @@ import java.util.Date;
 public class Order{
 
     @Id
-    String orderId;
+    String orderId ;
     LocalDateTime date;
     LocalDateTime from;
     LocalDateTime to;
     double totalCost;
-    String status = "NotVerified";
+    String status;
 // more
 
-    @OneToOne(mappedBy = "order")
-    Driver driver;
-
-    @OneToOne(mappedBy = "order")
+    @OneToOne
     Vehicle vehicle;
 
-    @OneToOne(mappedBy = "order")
+    @OneToOne
     Payment payment;
 
-
-    @OneToOne(mappedBy = "order")
+    @OneToOne
     Customer customer;
 
 

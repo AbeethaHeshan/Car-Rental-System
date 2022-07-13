@@ -14,16 +14,16 @@ import java.util.List;
 @ToString
 public class VehicleDTO {
 
-    String registrationNo;
-    String brand;
-    String type;
-    String passengers;
-    String transmissionType;
-    String fuelType;
-    String colour;
-    double dailyRate;
-    double monthlyRate;
-    double priceForExtraKM;
-    String status;
-    List<GalleryDTO> galleryDTO;
+    private String registrationNo;
+    private String brand;
+    private String type;
+    private String passengers;
+    private String transmissionType;
+    private String fuelType;
+    private String colour;
+    private double dailyRate;
+    private double monthlyRate;
+    private double priceForExtraKM;
+    private String status;
+    private List<GalleryDTO> gallery;
 }

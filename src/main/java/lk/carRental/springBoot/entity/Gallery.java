@@ -23,7 +23,6 @@ public class Gallery {
        //one
 
        @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-       @JoinColumn(name="registrationNo",referencedColumnName = "registrationNo", nullable=false)
        private Vehicle vehicle;
 
 

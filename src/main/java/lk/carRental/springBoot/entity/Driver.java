@@ -26,7 +26,6 @@ public class Driver {
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
-    Order order;
+    Vehicle vehicle;
 
 }

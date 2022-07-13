@@ -27,9 +27,6 @@ public class Vehicle {
     double priceForExtraKM;
     String status = "Available";
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
-    private Order order;
 
     @OneToMany(mappedBy="vehicle")
     private List<Gallery> galleries;

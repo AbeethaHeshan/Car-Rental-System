@@ -14,15 +14,16 @@ import javax.persistence.Id;
 @ToString
 public class DriverDTO {
 
-    String  driverId;
-    String name;
-    String address;
-    String nic;
-    String tell;
+    private String  driverId;
+    private String name;
+    private String address;
+    private String nic;
+    private String tell;
     private byte[] nicFront;
     private byte[] nicBack;
     private byte[] licenseFront;
     private byte[] licenseBack;
-    String status;
-    String driverVerify;
+    private String status;
+    private String driverVerify;
+    private VehicleDTO vehicle;
 }

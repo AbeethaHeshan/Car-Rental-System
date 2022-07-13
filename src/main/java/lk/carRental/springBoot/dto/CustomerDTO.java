@@ -27,4 +27,5 @@ public class CustomerDTO {
     private String status;
     private String userName;
     private String password;
+
 }
