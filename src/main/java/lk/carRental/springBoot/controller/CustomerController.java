@@ -1,6 +1,7 @@
 package lk.carRental.springBoot.controller;
 
 import lk.carRental.springBoot.dto.OrderDTO;
+import lk.carRental.springBoot.service.CustomerService;
 import lk.carRental.springBoot.service.impl.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,7 +18,9 @@ public class CustomerController{
 
 
      @Autowired
-     CustomerServiceImpl customerService;
+     CustomerService customerService;
+
+
 
        @PostMapping(path = "/post",consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE})
        public  void registerCustomer(@RequestBody OrderDTO  orderDTO , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes){

@@ -15,7 +15,8 @@ import java.util.ArrayList;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-
+         @Autowired
+         CustomerRepo customer;
 
 
             @Override
