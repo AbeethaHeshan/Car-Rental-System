@@ -19,6 +19,9 @@ public class Gallery {
        @Column(unique = false, nullable = false, length = 100000)
        private byte[] img;
 
+
+       //one
+
        @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
        @JoinColumn(name="registrationNo",referencedColumnName = "registrationNo", nullable=false)
        private Vehicle vehicle;

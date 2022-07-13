@@ -3,9 +3,7 @@ package lk.carRental.springBoot.controller;
 
 import lk.carRental.springBoot.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("vehicle")
@@ -16,40 +14,43 @@ public class VehicleController {
     VehicleService vehicle;
 
 
+         @PostMapping("register")
          public void registerVehicle(){
 
 
 
          }
 
-        public void deleteVehicle(){
+         @DeleteMapping("delete")
+         public void deleteVehicle(){
 
 
 
         }
 
 
-
+        @PutMapping("update")
         public void updateVehicle(){
 
 
 
          }
 
+         @GetMapping("getAll")
         public void getAllVehicle(){
 
 
 
         }
 
-
+        @GetMapping("search")
         public void searchVehicle(){
 
 
 
         }
 
-
+        @GetMapping("allAvailable")
         public void getAllAvailableVehicle(){
 
 

@@ -21,7 +21,7 @@ public class Order{
     LocalDateTime to;
     double totalCost;
     String status = "NotVerified";
-
+// more
 
     @OneToOne(mappedBy = "order")
     Driver driver;
