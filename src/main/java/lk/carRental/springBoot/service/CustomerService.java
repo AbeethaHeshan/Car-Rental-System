@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public interface CustomerService {
 
-           void save(CustomerDTO customerDTO);
-           void update(CustomerDTO customerDTO);
-           void delete(String id);
+           String save(CustomerDTO customerDTO);
+           String update(CustomerDTO customerDTO);
+           String delete(String id);
            CustomerDTO search(String id);
-           void IsVerified();
+           boolean IsVerified(String id);
            ArrayList<CustomerDTO> getAll();
            CustomerDTO search();
 }

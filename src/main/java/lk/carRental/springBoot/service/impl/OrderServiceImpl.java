@@ -1,10 +1,13 @@
 package lk.carRental.springBoot.service.impl;
 
+import lk.carRental.springBoot.dto.OrderDTO;
 import lk.carRental.springBoot.repo.OrderRepo;
 import lk.carRental.springBoot.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
 
 @Service
 @Transactional
@@ -15,32 +18,33 @@ public class OrderServiceImpl implements OrderService {
     OrderRepo order;
 
     @Override
-    public void placeOrder() {
-
+    public String placeOrder(OrderDTO orderDTO) {
+        return "";
     }
 
     @Override
-    public void deleteOrder() {
-
+    public String deleteOrder(String id) {
+        return "";
     }
 
     @Override
-    public void updateOrder() {
+    public String updateOrder(OrderDTO orderDTO) {
 
+        return "";
     }
 
     @Override
-    public void orderIdVerified() {
-
+    public boolean orderIdVerified(String id) {
+            return false;
     }
 
     @Override
-    public void getAllOrder() {
-
+    public ArrayList<OrderDTO> getAllOrder() {
+              return null;
     }
 
     @Override
-    public void searchOrder() {
-
+    public OrderDTO searchOrder(String id) {
+            return null;
     }
 }

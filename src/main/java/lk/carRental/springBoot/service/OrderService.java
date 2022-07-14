@@ -2,17 +2,19 @@ package lk.carRental.springBoot.service;
 
 import lk.carRental.springBoot.dto.OrderDTO;
 
+import java.util.ArrayList;
+
 public interface OrderService {
 
-      void placeOrder();
+      String placeOrder(OrderDTO orderDTO);
 
-      void deleteOrder();
+      String deleteOrder(String id);
 
-      void updateOrder();
+      String updateOrder(OrderDTO orderDTO);
 
-      void orderIdVerified();
+      boolean orderIdVerified(String id);
 
-      void getAllOrder();
+      ArrayList<OrderDTO> getAllOrder();
 
-      void searchOrder();
+      OrderDTO searchOrder(String id);
 }

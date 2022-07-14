@@ -20,18 +20,18 @@ public class CustomerServiceImpl implements CustomerService {
 
 
             @Override
-            public void save(CustomerDTO customerDTO) {
-
+            public String save(CustomerDTO customerDTO) {
+                     return "";
             }
 
             @Override
-            public void update(CustomerDTO customerDTO) {
-
+            public String update(CustomerDTO customerDTO) {
+                     return "";
             }
 
             @Override
-            public void delete(String id) {
-
+            public String delete(String id) {
+                     return "";
             }
 
             @Override
@@ -40,13 +40,14 @@ public class CustomerServiceImpl implements CustomerService {
             }
 
             @Override
-            public void IsVerified() {
-
+            public boolean IsVerified(String id) {
+                  return false;
             }
 
             @Override
             public ArrayList<CustomerDTO> getAll() {
-                return null;
+
+               return null;
             }
 
             @Override
