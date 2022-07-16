@@ -2,6 +2,7 @@ package lk.carRental.springBoot.controller;
 
 
 import lk.carRental.springBoot.dto.OrderDTO;
+import lk.carRental.springBoot.dto.PaymentDTO;
 import lk.carRental.springBoot.service.OrderService;
 import lk.carRental.springBoot.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class OrderController {
       OrderService order;
 
 
-            @PutMapping(value = "placeOrder",consumes = {MediaType.APPLICATION_JSON_VALUE})
+            @PostMapping(value = "",consumes = {MediaType.APPLICATION_JSON_VALUE})
             public ResponseUtil placeOrder(@RequestBody  OrderDTO orderDTO){
 
                return new ResponseUtil(200,"save",order.placeOrder(orderDTO));
@@ -32,7 +33,7 @@ public class OrderController {
             }
 
             @PutMapping("updateOrder")
-            public  ResponseUtil updateOrder(OrderDTO orderDTO){
+            public  ResponseUtil updateOrder(@RequestParam("order") OrderDTO orderDTO, @RequestParam("pay")PaymentDTO payment){
                   return  new ResponseUtil(200,"update",order.updateOrder(orderDTO));
             }
 

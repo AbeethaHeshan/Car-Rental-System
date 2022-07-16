@@ -29,7 +29,7 @@ public class CustomerController{
        @PostMapping(path = "/post",consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE},produces ={MediaType.APPLICATION_JSON_VALUE})
        public ResponseUtil registerCustomer(@RequestBody CustomerDTO customer , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes) throws IOException {
          byte[] bytes;
-         int c = 0;
+         int c = 1;
          for (MultipartFile file:files) {
             bytes = file.getBytes();
             switch (c){
@@ -48,37 +48,35 @@ public class CustomerController{
 
        }
 
-
        @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
        public  ResponseUtil updateCustomer(@RequestBody CustomerDTO customer , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes){
                return new ResponseUtil(200,"Update",customerService.update(customer));
        }
 
-       @DeleteMapping(path = "/{id}")
+       @DeleteMapping(path = "/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
        public  ResponseUtil deleteCustomer( @PathVariable String id){
              return new ResponseUtil(200,"Delete",customerService.delete(id));
        }
 
-       @GetMapping(path = "verified")
+       @GetMapping(path = "verified" , produces = MediaType.APPLICATION_JSON_VALUE)
        public ResponseUtil getCustomerIsVerified(String id){
 
             return new ResponseUtil(200,"getVerified/Not",customerService.IsVerified(id));
 
        }
 
-       @GetMapping(path = "/")
+
+       @GetMapping(path = "all" , produces = MediaType.APPLICATION_JSON_VALUE)
        public ResponseUtil getAllCustomer() {
         return new ResponseUtil(200,"GetAll", customerService.getAll());
        }
 
-       @GetMapping(path = "/search")
+
+
+       @GetMapping(path = "/search" , produces = MediaType.APPLICATION_JSON_VALUE)
        public ResponseUtil searchCustomer(String id){
            return  new ResponseUtil(200,"Search",customerService.search(id));
        }
-
-
-
-
 
 
 }

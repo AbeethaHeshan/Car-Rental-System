@@ -11,7 +11,7 @@ public interface DriverService {
     void update(DriverDTO driverDTO);
     void delete(String id);
     DriverDTO search(String id);
-    void IsVerified();
+    boolean isVerified(String id);
     ArrayList<DriverDTO> getAll();
-
+    boolean getAvailability(String id);
 }

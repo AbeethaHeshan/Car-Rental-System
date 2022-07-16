@@ -36,12 +36,20 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void IsVerified() {
-
+    public boolean isVerified(String id) {
+           return true;
     }
 
     @Override
     public ArrayList<DriverDTO> getAll() {
+
         return null;
+    }
+
+    @Override
+    public boolean getAvailability(String id) {
+
+
+        return true;
     }
 }
