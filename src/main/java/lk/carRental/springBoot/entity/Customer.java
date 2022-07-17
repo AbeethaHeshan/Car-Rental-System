@@ -16,14 +16,11 @@ public class Customer {
     private String name;
     private String address;
     private String nic;
-    @Column(unique = false, nullable = false, length = 100000)
-    private byte[] nicFront;
-    @Column(unique = false, nullable = false, length = 100000)
-    private byte[] nicBack;
-    @Column(unique = false, nullable = false, length = 100000)
-    private byte[] licenseFront;
-    @Column(unique = false, nullable = false, length = 100000)
-    private byte[] licenseBack;
+    private String nicFront;
+    private String nicBack;
+    private String licenseFront;
+    private String licenseBack;
+    private String path;
     private String tel;
     private String email;
     private String status;

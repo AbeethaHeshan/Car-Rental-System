@@ -18,10 +18,10 @@ public class CustomerDTO {
     private String name;
     private String address;
     private String nic;
-    private byte[] nicFront;
-    private byte[] nicBack;
-    private byte[] licenseFront;
-    private byte[] licenseBack;
+    private String nicFrontFileName;
+    private String nicBackFileName;
+    private String licenseFrontFileName;
+    private String licenseBackFileName;
     private String tel;
     private String email;
     private String status;

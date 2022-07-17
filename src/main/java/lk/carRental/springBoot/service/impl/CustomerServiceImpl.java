@@ -1,15 +1,19 @@
 package lk.carRental.springBoot.service.impl;
 
 import lk.carRental.springBoot.dto.CustomerDTO;
+import lk.carRental.springBoot.dto.CustomerRAWDataDTO;
 import lk.carRental.springBoot.entity.Customer;
 import lk.carRental.springBoot.repo.CustomerRepo;
 import lk.carRental.springBoot.service.CustomerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -18,42 +22,69 @@ public class CustomerServiceImpl implements CustomerService {
          @Autowired
          CustomerRepo customer;
 
+         @Autowired
+         ModelMapper mapper;
+
+
+    @Override
+    public int getLastId() {
+        return customer.getLastCustomerId();
+    }
+
+    @Override
+            public String saveDetails(CustomerRAWDataDTO customerRDTO) {
+
+                 // save all data
+                 customer.save(mapper.map(customerRDTO,Customer.class));
+
+                 //save  images
+
+                 // if success return true
+
+                 return "";
+            }
+
 
             @Override
-            public String save(CustomerDTO customerDTO) {
-                     return "";
+            public void savePhotos(CustomerDTO customerDTO) {
+
+                customer.save(mapper.map(customerDTO,Customer.class));
+
             }
+
+
 
             @Override
             public String update(CustomerDTO customerDTO) {
-                     return "";
+
+                customer.save(mapper.map(customerDTO,Customer.class));
+                return "";
             }
 
             @Override
             public String delete(String id) {
-                     return "";
+
+                customer.deleteById(id);
+                return "";
             }
 
             @Override
             public CustomerDTO search(String id) {
-                return null;
+
+                return mapper.map(customer.findById(id).get(),CustomerDTO.class);
             }
 
             @Override
             public boolean IsVerified(String id) {
-                  return false;
+                return false;
             }
 
             @Override
             public ArrayList<CustomerDTO> getAll() {
-
-               return null;
+                return mapper.map(customer.findAll(),new TypeToken<List<CustomerDTO>>(){}.getType());
             }
 
-            @Override
-            public CustomerDTO search() {
-                return null;
-            }
+
 
  /*   @Autowired
     CustomerRepo customerRepo;

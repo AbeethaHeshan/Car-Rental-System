@@ -1,10 +1,13 @@
 package lk.carRental.springBoot.controller;
 
 import lk.carRental.springBoot.dto.CustomerDTO;
+import lk.carRental.springBoot.dto.CustomerRAWDataDTO;
 import lk.carRental.springBoot.dto.OrderDTO;
 import lk.carRental.springBoot.service.CustomerService;
+import lk.carRental.springBoot.service.fileStoreService.StorageService;
 import lk.carRental.springBoot.service.impl.CustomerServiceImpl;
 import lk.carRental.springBoot.util.ResponseUtil;
+import lk.carRental.springBoot.util.StorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -24,29 +28,39 @@ public class CustomerController{
      @Autowired
      CustomerService customerService;
 
+     @Autowired
+     StorageService service;
+
+
+     @Autowired
+    StorageProperties properties;
+
 
        @ResponseStatus(HttpStatus.CREATED)
-       @PostMapping(path = "/post",consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE},produces ={MediaType.APPLICATION_JSON_VALUE})
-       public ResponseUtil registerCustomer(@RequestBody CustomerDTO customer , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes) throws IOException {
-         byte[] bytes;
-         int c = 1;
-         for (MultipartFile file:files) {
-            bytes = file.getBytes();
-            switch (c){
-              case 1:  customer.setNicFront(bytes);break;
-              case 2:  customer.setNicBack(bytes);break;
-              case 3:  customer.setLicenseFront(bytes);break;
-              case 4:  customer.setLicenseBack(bytes);break;
-              default:
-                System.out.println("ex ++++");
-            }
-            c++;
-         }
+       @PostMapping(path = "/post",consumes = MediaType.APPLICATION_JSON_VALUE , produces ={MediaType.APPLICATION_JSON_VALUE})
+       public ResponseUtil registerCustomer(@RequestBody CustomerDTO customer) throws IOException {
+            //if not ,  get image names and set to dto
 
-            customerService.save(customer);
-            return new ResponseUtil(200,"Save",null);
+
+
+           //set to service  file / db
+
+
+           return new ResponseUtil(200,"Save",null);
 
        }
+
+
+       @PostMapping("/post/photos")
+       public  void registerPhotos(@RequestParam("id") String id , @RequestParam("idBack") MultipartFile idBack , @RequestParam("lisFront") MultipartFile lisFront , @RequestParam("lisBack") MultipartFile lisBack){
+
+               System.out.println(id);
+               service.store(service.createDirectory("Customer","2"),idBack,lisFront);
+
+
+       }
+
+
 
        @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
        public  ResponseUtil updateCustomer(@RequestBody CustomerDTO customer , @RequestParam("file") ArrayList<MultipartFile> files, RedirectAttributes redirectAttributes){
@@ -61,6 +75,11 @@ public class CustomerController{
        @GetMapping(path = "verified" , produces = MediaType.APPLICATION_JSON_VALUE)
        public ResponseUtil getCustomerIsVerified(String id){
 
+
+
+
+
+
             return new ResponseUtil(200,"getVerified/Not",customerService.IsVerified(id));
 
        }
@@ -68,6 +87,8 @@ public class CustomerController{
 
        @GetMapping(path = "all" , produces = MediaType.APPLICATION_JSON_VALUE)
        public ResponseUtil getAllCustomer() {
+
+
         return new ResponseUtil(200,"GetAll", customerService.getAll());
        }
 
