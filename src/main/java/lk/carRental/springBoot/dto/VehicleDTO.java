@@ -25,5 +25,5 @@ public class VehicleDTO {
     private double monthlyRate;
     private double priceForExtraKM;
     private String status;
-    private List<GalleryDTO> gallery;
+
 }

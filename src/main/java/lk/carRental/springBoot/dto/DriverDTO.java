@@ -19,10 +19,10 @@ public class DriverDTO {
     private String address;
     private String nic;
     private String tell;
-    private byte[] nicFront;
-    private byte[] nicBack;
-    private byte[] licenseFront;
-    private byte[] licenseBack;
+    private String nicFront;
+    private String nicBack;
+    private String licenseFront;
+    private String licenseBack;
     private String status;
     private String driverVerify;
     private VehicleDTO vehicle;

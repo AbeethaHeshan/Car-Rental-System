@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 public class Customer {
     @Id
-    private String customerId;
+    private int customerId;
     private String name;
     private String address;
     private String nic;
@@ -28,4 +28,20 @@ public class Customer {
     private String password;
 
 
+    public Customer(String nicFront, String nicBack, String licenseFront, String licenseBack) {
+        this.nicFront = nicFront;
+        this.nicBack = nicBack;
+        this.licenseFront = licenseFront;
+        this.licenseBack = licenseBack;
+    }
+
+    public Customer(int parseInt, String nicFront, String nicBack, String lisFront, String lisBack, String path) {
+
+        customerId = parseInt;
+        this.nicFront = nicFront;
+        this.nicBack = nicBack;
+        this.licenseFront = lisFront;
+        this.licenseBack = lisBack;
+        this.path = path;
+    }
 }

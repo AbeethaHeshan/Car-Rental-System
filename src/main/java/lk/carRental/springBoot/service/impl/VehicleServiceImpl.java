@@ -25,7 +25,6 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public void save(VehicleDTO vehicle) {
 
-
     }
 
     @Override

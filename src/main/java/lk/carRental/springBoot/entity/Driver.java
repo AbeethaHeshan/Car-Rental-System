@@ -12,17 +12,18 @@ import javax.persistence.*;
 @Entity
 public class Driver {
     @Id
-    String driverId;
-    String name;
-    String address;
-    String nic;
-    String tell;
-    @Column(unique = false, nullable = false, length = 100000)
-    private byte[] photoNic;
-    @Column(unique = false, nullable = false, length = 100000)
-    private byte[] photoLicersence;
-    String status = "Available";
-    String driverVerify = "NotVerified";
+    private String driverId;
+    private String name;
+    private String address;
+    private String nic;
+    private String tell;
+    private String nicFrontFileName;
+    private String nicBackFileName;
+    private String licenseFrontFileName;
+    private String licenseBackFileName;
+    private String path;
+    private String status ;
+    private String driverVerify ;
 
 
     @OneToOne(cascade = CascadeType.ALL)

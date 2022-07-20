@@ -1,5 +1,6 @@
 package lk.carRental.springBoot.entity;
 
+import lk.carRental.springBoot.dto.GalleryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +15,9 @@ public class Gallery {
 
        @Id
        @GeneratedValue(strategy= GenerationType.AUTO)
-       String id;
-       String fileName;
-       @Column(unique = false, nullable = false, length = 100000)
-       private byte[] img;
+       long id;
+       String path;
+       String imgName;
 
 
        //one
@@ -26,5 +26,9 @@ public class Gallery {
        private Vehicle vehicle;
 
 
-
+       public Gallery(String path, String imageName, Vehicle vehicle) {
+                this.path = path;
+                this.imgName = imageName;
+                this.vehicle = vehicle;
+       }
 }

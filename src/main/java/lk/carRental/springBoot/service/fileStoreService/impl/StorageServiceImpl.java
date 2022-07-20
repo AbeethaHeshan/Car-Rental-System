@@ -3,15 +3,19 @@ package lk.carRental.springBoot.service.fileStoreService.impl;
 import lk.carRental.springBoot.service.CustomerService;
 import lk.carRental.springBoot.service.fileStoreService.StorageService;
 import lk.carRental.springBoot.util.StorageException;
+import lk.carRental.springBoot.util.StorageFileNotFoundException;
 import lk.carRental.springBoot.util.StorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,10 +41,11 @@ public class StorageServiceImpl implements StorageService {
 
     @Override
     public String createDirectory(String newDir, String SubDirName) {
+        System.out.println(SubDirName);
         Path path = rootLocation;
-        int lastId = Integer.parseInt(SubDirName);
+        //int lastId = Integer.parseInt(SubDirName);
         String mainFolder = "/"+newDir;
-        String subFolder = "/"+(lastId);
+        String subFolder = "/"+SubDirName;
         File dri = null;
 
         System.out.println(path);
@@ -88,13 +93,16 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
-    public Stream<Path> loadAll() {
+    public Stream<Path> loadAll()
+    {
         return null;
     }
 
     @Override
     public Path load(String filename) {
+
         return null;
+
     }
 
     @Override
@@ -108,7 +116,47 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
-    public void delete(String fileName, String path) throws IOException {
+    public void delete(String fileName, String path ) throws IOException {
+
+        String paths = 	path + "/"+ fileName ;
+
+        try {
+            FileSystemUtils.deleteRecursively(Paths.get(paths));
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+
+        }
+
+        System.out.println("Delete success");
+
+    }
+
+    @Override
+    public Resource loadAsResource(String department, String id , String filename) {
+        // file name or All , witch department , customer Id
+
+        try {
+            //Path file = load(filename);
+            //  System.out.println(file.resolve(""));
+            System.out.println(rootLocation.toUri());
+            //"file:///home/abeehaheshan/Desktop/img"
+            Resource resource = new UrlResource(rootLocation.toUri()+ "/" + department + "/" + id + "/" + filename);
+            System.out.println(resource+" XDEW");
+
+
+            if (resource.exists() || resource.isReadable()) {
+                return resource;
+            }
+            else {
+                throw new StorageFileNotFoundException(
+                        "Could not read file: " + filename);
+            }
+        }
+
+        catch (MalformedURLException e) {
+            throw new StorageFileNotFoundException("Could not read file: " + filename, e);
+        }
 
     }
 }

@@ -25,10 +25,11 @@ public class Vehicle {
     double dailyRate;
     double monthlyRate;
     double priceForExtraKM;
-    String status = "Available";
-
-
+    String status;
     @OneToMany(mappedBy="vehicle")
     private List<Gallery> galleries;
 
+    public Vehicle(String id) {
+        this.registrationNo = id;
+    }
 }

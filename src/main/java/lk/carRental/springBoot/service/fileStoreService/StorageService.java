@@ -23,4 +23,6 @@ public interface StorageService {
     void deleteAll();
 
     void delete(String fileName , String path) throws IOException;
+
+    Resource loadAsResource(String customer, String valueOf, String nicFrontFileName);
 }

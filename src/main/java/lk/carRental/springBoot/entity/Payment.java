@@ -14,8 +14,8 @@ public class Payment {
 
      @Id
      private  String id;
-     @Column(unique = false, nullable = false, length = 100000)
-     private byte[] bankSlip;
+     private String bankSlipName;
+     private String path;
      private String status ;
 
 

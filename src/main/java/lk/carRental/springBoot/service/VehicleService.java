@@ -11,4 +11,5 @@ public interface VehicleService {
      ArrayList<VehicleDTO> getAll();
      VehicleDTO search(String id);
      ArrayList<VehicleDTO> getAllAvailableVehicle();
+
 }

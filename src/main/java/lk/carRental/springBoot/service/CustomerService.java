@@ -9,12 +9,23 @@ import java.util.ArrayList;
 public interface CustomerService {
 
            int getLastId();
-           String saveDetails(CustomerRAWDataDTO customerDTO);
+           String saveDetails(CustomerDTO customerDTO);
            void savePhotos(CustomerDTO customerDTO);
            String update(CustomerDTO customerDTO);
-           String delete(String id);
+           String delete(int id);
            CustomerDTO search(String id);
-           boolean IsVerified(String id);
+           String IsVerified(int id);
            ArrayList<CustomerDTO> getAll();
 
+    void updatePath(String path, int parseInt,String... fileNames);
+
+    String getPath(int parseInt);
+
+    CustomerDTO getFileName(int parseInt);
+
+    void setNicNull(int parseInt);
+
+    void setLisNull(int parseInt);
+
+    void setCustomerStatusVerify(int parseInt);
 }

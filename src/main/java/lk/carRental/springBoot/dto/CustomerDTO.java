@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Data
 public class CustomerDTO {
 
-    private String customerId;
+    private int customerId;
     private String name;
     private String address;
     private String nic;
@@ -28,4 +28,10 @@ public class CustomerDTO {
     private String userName;
     private String password;
 
+    public CustomerDTO(String nicFrontFileName, String nicBackFileName, String licenseFrontFileName, String licenseBackFileName) {
+        this.nicFrontFileName = nicFrontFileName;
+        this.nicBackFileName = nicBackFileName;
+        this.licenseFrontFileName = licenseFrontFileName;
+        this.licenseBackFileName = licenseBackFileName;
+    }
 }

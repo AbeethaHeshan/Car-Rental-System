@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 public class PaymentDTO {
 
     private  String id;
-    private byte[] bankSlip;
+    private String bankSlip;
     private String status ;
 
 }
